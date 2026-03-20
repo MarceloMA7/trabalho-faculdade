@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HouseSecurity</title>
 
-  <!-- Ícones -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <style>
@@ -23,28 +22,11 @@
 
     header {
       background: #020617;
-      color: white;
       padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       border-bottom: 2px solid #4facfe;
     }
 
     header h1 {
-      font-size: 24px;
-      color: #4facfe;
-    }
-
-    nav a {
-      color: white;
-      margin-left: 20px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
       color: #4facfe;
     }
 
@@ -55,23 +37,15 @@
       color: white;
     }
 
-    .hero h2 {
-      font-size: 42px;
-      margin-bottom: 20px;
-    }
-
-    .hero p {
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
     .btn {
       background: #4facfe;
       color: white;
       padding: 12px 25px;
       border-radius: 25px;
+      border: none;
+      cursor: pointer;
       text-decoration: none;
-      transition: 0.3s;
+      display: inline-block;
     }
 
     .btn:hover {
@@ -91,8 +65,6 @@
       padding: 25px;
       width: 280px;
       border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-      transition: 0.3s;
       text-align: center;
     }
 
@@ -102,32 +74,36 @@
       margin-bottom: 15px;
     }
 
-    .card:hover {
-      transform: translateY(-10px);
+    .orcamento {
+      display: none;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
     }
 
-    .card h3 {
-      margin-bottom: 10px;
-      color: #4facfe;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
+    .box {
       background: #020617;
-      color: #9ca3af;
-      margin-top: 40px;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
     }
 
-    @media (max-width: 768px) {
-      .hero h2 {
-        font-size: 28px;
-      }
+    .price {
+      font-size: 28px;
+      margin: 20px 0;
+    }
 
-      .services {
-        flex-direction: column;
-        align-items: center;
-      }
+    .contact {
+      margin-top: 15px;
+    }
+
+    .whatsapp-btn {
+      background: #25D366;
+      margin-top: 15px;
+    }
+
+    .whatsapp-btn:hover {
+      background: #1ebe5d;
     }
   </style>
 </head>
@@ -136,38 +112,60 @@
 
   <header>
     <h1>🔒 HouseSecurity</h1>
-    <nav>
-      <a href="#">Home</a>
-      <a href="#">Serviços</a>
-      <a href="#">Contato</a>
-    </nav>
   </header>
 
-  <section class="hero">
-    <h2>Proteja sua casa com tecnologia inteligente</h2>
-    <p>Monitoramento 24h e alarmes modernos para sua tranquilidade.</p>
-    <a href="#" class="btn">Solicitar orçamento</a>
-  </section>
-
-  <section class="services">
-
-    <div class="card">
-      <i class="fas fa-bell"></i>
-      <h3>Sistemas de Alarme</h3>
-      <p>Alarmes inteligentes com sensores de movimento e abertura.</p>
+  <!-- HOME -->
+  <section id="home">
+    <div class="hero">
+      <h2>Proteja sua casa com tecnologia inteligente</h2>
+      <p>Monitoramento 24h e alarmes modernos para sua tranquilidade.</p>
+      <button class="btn" onclick="mostrarOrcamento()">Solicitar orçamento</button>
     </div>
 
-    <div class="card">
-      <i class="fas fa-shield-alt"></i>
-      <h3>Monitoramento 24h</h3>
-      <p>Equipe especializada monitorando sua casa em tempo real.</p>
-    </div>
+    <section class="services">
+      <div class="card">
+        <i class="fas fa-bell"></i>
+        <h3>Sistemas de Alarme</h3>
+        <p>Alarmes inteligentes com sensores de movimento.</p>
+      </div>
 
+      <div class="card">
+        <i class="fas fa-shield-alt"></i>
+        <h3>Monitoramento 24h</h3>
+        <p>Segurança em tempo real.</p>
+      </div>
+    </section>
   </section>
 
-  <footer>
-    <p>© 2026 HouseSecurity - Sistema de segurança residencial</p>
-  </footer>
+  <!-- ORÇAMENTO -->
+  <section id="orcamento" class="orcamento">
+    <div class="box">
+      <h1>Seu Orçamento</h1>
+      <p class="price">💰 R$ 300,00</p>
+
+      <p class="contact">Entre em contato com o Matheus:</p>
+
+      <!-- BOTÃO WHATSAPP -->
+      <a href="https://wa.me/5511992267775" target="_blank" class="btn whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+      </a>
+
+      <br><br>
+      <button class="btn" onclick="voltar()">Voltar</button>
+    </div>
+  </section>
+
+  <script>
+    function mostrarOrcamento() {
+      document.getElementById("home").style.display = "none";
+      document.getElementById("orcamento").style.display = "flex";
+    }
+
+    function voltar() {
+      document.getElementById("home").style.display = "block";
+      document.getElementById("orcamento").style.display = "none";
+    }
+  </script>
 
 </body>
 </html>
